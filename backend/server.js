@@ -10,7 +10,7 @@ const app = express();
 
 app.use(express.json());
 
-env.config({path: "./config.env"})
+env.config({path:"./config.env"})
 // Connect to MongoDB
 mongoose.connect(process.env.DB);
 

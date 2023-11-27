@@ -11,14 +11,18 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       const response = await axios.post('/login', { username, password });
-      console.log(response.data);
-      navigate('/');
+      localStorage.setItem("user",JSON.stringify(response.data.user))
+     
+      navigate('/profile');
     } catch (error) {
       console.log(error);
     }
   };
 
+ 
+
   return (
+    
     <div style={{backgroundColor: "#f0f0f0", display: "flex", justifyContent: "center", alignItems: "center",
     flexDirection: "column", minHeight: "100vh"}}>
       <div style={{backgroundColor: "lightgrey", padding: "60px", borderRadius: "20px"}}>

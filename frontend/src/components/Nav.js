@@ -1,39 +1,37 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Nav = () => {
+
+
+
+const Nav = ({ authenticated }) => {
+  console.log(authenticated)
   return (
     <div className="NavCss">
       <li>
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="/addproducts">AddProducts</Link>
+        <Link to="/products">Products</Link>
       </li>
-      <li>
-        <Link to="/updateproducts">UpdateProducts</Link>
-      </li>
+      
       <li>
         <Link to="/profile">Profile</Link>
       </li>
-      
-        {/* get user data login to show the logic here in turnary operator  */}
-      {!true ? (
-          <>
-            <li>
-              <Link to="/logout">Logout</Link>
-            </li>
-          </>
-        ) : (
-          <>
-            <li>
-              <Link to="/register">Signup</Link>
-            </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-          </>)
-}
+      {authenticated  ? (
+        <li>
+          <Link to="/logout">Logout</Link>
+        </li>
+      ) : (
+        <div className="d-flex">
+          <li>
+            <Link to="/register">Signup</Link>
+          </li>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+        </div>
+      )}
     </div>
   );
 };

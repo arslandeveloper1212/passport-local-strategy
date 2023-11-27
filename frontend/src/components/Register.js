@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
+
 const Register = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -18,7 +19,9 @@ const Register = () => {
     }
   };
 
+
   return (
+    
     <div style={{backgroundColor: "#f0f0f0", display: "flex", justifyContent: "center", alignItems: "center",
     flexDirection: "column", minHeight: "100vh"}} >
       <div style={{backgroundColor: "lightgrey", padding: "60px", borderRadius: "20px"}}>
@@ -30,6 +33,7 @@ const Register = () => {
       <button className='btn_color' onClick={handleRegister}>Submit</button>
     </div>
     </div>
+    
   );
 };
 
