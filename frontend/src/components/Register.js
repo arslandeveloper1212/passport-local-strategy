@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import Nav from './Nav';
 
 
 const Register = () => {
+
+
+
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const navigate = useNavigate();
 
-  const handleRegister = async () => {
+  const handleRegister = async (e) => {
+    e.preventDefault();
     try {
       const response = await axios.post('/register', { username, password });
       console.log(response.data);
@@ -21,6 +27,9 @@ const Register = () => {
 
 
   return (
+    <div>
+
+      <Nav/>
     
     <div style={{backgroundColor: "#f0f0f0", display: "flex", justifyContent: "center", alignItems: "center",
     flexDirection: "column", minHeight: "100vh"}} >
@@ -33,7 +42,7 @@ const Register = () => {
       <button className='btn_color' onClick={handleRegister}>Submit</button>
     </div>
     </div>
-    
+    </div>
   );
 };
 

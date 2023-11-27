@@ -77,10 +77,7 @@ app.get('/logout', (req, res) => {
   }
 });
 
-// Check authentication route
-app.get('/checkAuth', (req, res) => {
-  res.json({ isAuthenticated: req.isAuthenticated(), user: req.user });
-});
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

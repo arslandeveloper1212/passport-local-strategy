@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
+import Nav from "./Nav"
 const Logout = () => {
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
@@ -13,6 +14,7 @@ const Logout = () => {
       document.cookie = 'connect.sid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
       // Clear localStorage
       localStorage.clear();
+      navigate("/login")
     } catch (error) {
       console.log(error);
     }
@@ -25,7 +27,13 @@ const Logout = () => {
   }, []);
 
   // Redirect to the login page after logout
-  return <Navigate to="/login" />;
+  return (
+    <div>
+      <Nav />
+      <Navigate to="/login" />;
+    </div>
+  );
+  
 };
 
 export default Logout;

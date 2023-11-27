@@ -1,12 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-
-
-
-const Nav = ({ authenticated }) => {
-  console.log(authenticated)
+const Nav = () => {
+  
   return (
+    
     <div className="NavCss">
       <li>
         <Link to="/">Home</Link>
@@ -18,7 +16,7 @@ const Nav = ({ authenticated }) => {
       <li>
         <Link to="/profile">Profile</Link>
       </li>
-      {authenticated  ? (
+      {localStorage.getItem("user")  ? (
         <li>
           <Link to="/logout">Logout</Link>
         </li>
